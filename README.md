@@ -1,11 +1,11 @@
 # System requirements
-Windows 10
-Python               3.6.8
-matplotlib           3.1.1
-numpy                1.16.4
-pandas               0.25.0
-scikit-learn         0.21.3
-scipy                1.3.0
+Windows 10<br>
+Python               3.6.8<br>
+matplotlib           3.1.1<br>
+numpy                1.16.4<br>
+pandas               0.25.0<br>
+scikit-learn         0.21.3<br>
+scipy                1.3.0<br>
 
 # How to run the code
 Our method is implemented in "result.py"
