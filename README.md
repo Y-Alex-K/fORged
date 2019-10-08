@@ -10,6 +10,7 @@ scipy                1.3.0<br>
 # How to run the code
 Our method is implemented in "result.py"
 Let **p** be the path to "Ten-Year-Demand.csv" and **q** be the path to the test data (CSV file).
+(The paths are without quatation marks.)
 On the command prompt, enter
 ```
 python result.py p q
