@@ -50,7 +50,7 @@ def D_pred(train, test, seasonal, verbose=False):
     history = [x for x in train]
     predictions = []
     for t in range(len(test)):
-        model = ARIMA(history, order=(5,1,0))
+        model = ARIMA(history, order=(3,1,0))
         model_fit = model.fit(disp=0)
         output = model_fit.forecast()
         yhat = output[0][0]
@@ -68,14 +68,15 @@ def F_epsilon(obs, pred):
     Input
     obs: observed values (np.array or pd.Series)
     pred: predicted values
+    x: point the we want to know its percentile
     Output
-    distribution function of residuals
+    percentile of x in the distribution of residuals
     '''
     obs = np.array(obs)
     pred = np.array(pred)
     epsilon = obs - pred
-    epsilon.sort()
-    return lambda x: (stats.percentileofscore(epsilon, x, kind='weak') / 100 + 0.5 - stats.percentileofscore(epsilon, 0, kind='weak') / 100) #centerinze
+    s = np.std(epsilon)
+    return lambda x: stats.norm.cdf(x, 0, s)
 
 def find_Q(I, Dhat, F):
     '''
@@ -84,7 +85,7 @@ def find_Q(I, Dhat, F):
     Dhat: prediction of
     F: distribution function
     '''
-    Q = -100.0
+    Q = 0
     alpha = 0.01 #step size
     while True:
         a = F(I + Q - Dhat)
