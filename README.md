@@ -9,9 +9,10 @@ scipy                1.3.0<br>
 
 # How to run the code
 Our method is implemented in "result.py"
-Let **p** be the path to "Ten-Year-Demand.csv" and **q** be the path to the test data (CSV file).
+Let **train_path** be the path to "Ten-Year-Demand.csv" and **test_path** be the path to the test data (CSV file).
 (The paths are without quatation marks.)
+For example, if "Ten-Year-Demand.csv" is placed in the same folder as "result.py", test_path would be "./Ten-Year-Demand.csv" (when you enter it, remove the quatation marks).
 On the command prompt, enter
 ```
-python result.py p q
+python result.py train_path test_path
 ```
