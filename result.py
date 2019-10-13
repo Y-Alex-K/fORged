@@ -85,7 +85,7 @@ def find_Q(I, Dhat, F):
     Dhat: prediction of
     F: distribution function
     '''
-    Q = 0
+    Q = 0.0
     alpha = 0.01 #step size
     while True:
         a = F(I + Q - Dhat)
